@@ -15,8 +15,13 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category) {
+	/*Your code here*/
+	const newMenuItems = {};
+	newMenuItems.name = name;
+	newMenuItems.price = price;
+	newMenuItems.category = category;
+	return newMenuItems;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -29,7 +34,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+console.log(createMenuItem('Chicken', 9.5, 'Lunch'));
+console.log(createMenuItem('Sub-Sandwich', 5.0, 'Dinner'));
+console.log(createMenuItem('Waffles', 7.5, 'Breakfast'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -47,9 +54,18 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
+  discount: function (string) {
+		let discountMember = string.toLowerCase();
+		if (discountMember === 'teacher' || discountMember === 'student') {
+			return burger.price - burger.price * 0.25;
+		} else {
+			return burger.price - burger.price * 0.1;
+		}
+	},
   
 }
-
+console.log(burger.discount('teacher'));
+console.log(burger.discount('public'));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -69,7 +85,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
+console.log(reviews[5].feedback);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -78,8 +94,13 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
-
+reviews.push({
+	name: 'Dean',
+	rating: 4.0,
+	feedback:
+		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, officia.',
+});
+console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -106,9 +127,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(arr, item) {
+	return `${arr[item].name} gave the restaurant a ${arr[item].rating} star review, and their feedback was: ${arr[item].feedback}`;
 }
+
+console.log(getReviewByIndex(reviews, 0));
 
 
   
